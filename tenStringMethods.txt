@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body style = 'background-color:#000; color:#fff;'>
+    <noscript>Your site does not support javascript.</noscript>
+    <script>
+      //1---- string length ------///
+      //--- the length property returns the length of a string ---///
+      //--- تعداد کاراکترهای یک رشته را برمیگرداند ---///
+      var text = "pineapple";
+      var length = text.length;
+      console.log(length);
+      //--- length = 9 ---///
+
+      //2---- string slice() ---///
+      //---- slice() extracts a part of string and returns that extracted part in a new string ---///
+      //--- slice() takes 2 parameters : start position , and end position (end not included) ---///
+      //--- if the parameter was negative, slice returns characters from the end of string ---///
+      //--- قسمتی از یک  رشته را جدا کرده سپس در یک رشته دیگر میریزد ---///
+      //--- اسلایس دو پارامتر میگیرد اولین مقدار مربوط به کاراکتر آغازین که از رشته قبلی جدا میشه و دومین مقدار آخرین کاراکتر رشته قبلی را جدا میکند و در رشته جدید میریزد ولی آخرین کاراکتر شامل نمیشود ---//
+      //--- اگر کاراکتر اسلایس منفی باشد اسلایس از انتهای رشته کاراکتر جدا میکند ---///
+      var text = "tehran , mashhad, esfahan";
+      var part = text.slice(9, 16);
+      console.log(part);
+      //--- part = 'mashhad' ---///
+
+      //3--- string substring ---///
+      //--- string substring() treats same as slice() method ,difference between slice and substring is negative parameters behaves same as 0 in substring---//
+      //--- مانند اسلایس رفتار میکند ولی سابسترینگ مقدار منفی را مانند صفر تلقی میکند ---///
+      var text = "tehran , mashhad, esfahan";
+      var part = text.substring(0, 7);
+      console.log(part);
+      //--- part = 'tehran' ---///
+
+      //4--- string substr() ---///
+      //--- string.substr() treats same as slice() ---///
+      //--- string.substr() takes two parameters first is start of str and second is the length of str ---//
+      //--- مانند اسلایس رفتار میکند و دو مقدار میگیرد اولی کاراکتر آغازین را مشخص کرده و دومین مقدار طول رشته را مشخص میکند ---///
+      var text = "tehran is good city.";
+      var part = text.substr(0, 10);
+      console.log(part);
+      //--- part = 'tehran is ' ---///
+
+      //5--- string replace() ---///
+      //--- string replace() method replaces a specified value with another value in a string ---///
+      //--- string replace() is case sensitive ,to replace insensitive use regular expression with an /i flag ---///
+      //--- مقدار دلخواه را جایگزین مقدار تعیین شده در رشته میکند ---///
+      //--- ریپلیس به بزرگ با کوچکی حروف حساس است و میتوان از i/ / برای عدم کیس سنستیو کردن استفاده کرد ---///
+      var text = "apple , mango , banana , cucumber";
+      var newText = text.replace(/MANGO/i, "kiwi");
+      console.log(newText);
+      //--- newText = 'apple , kiwi , banana , cucumber' ---///
+
+      //6--- string replaceall() ---///
+      //--- The replaceall() allows you to specify a regular expression instead of a string to replace. ---///
+      //--- عبارت تعیین شده را با عبارت موجود در رشته قبلی جایگزین میکند ---///
+      var text = "apple , mango , banana , cucumber";
+      var newText = text.replaceAll("banana", "BANANA");
+      console.log(newText);
+      //--- newText = 'apple , mango , BANANA , cucumber' ---///
+
+      //7--- string toUpperCase() and toLowerCase() ---///
+      //--- These methods convert a string to upper case or lower case. ---///
+      //--- این متد ها حروف یک رشته را بزرگ یا کوچک میکنند ---///
+      var text = "apple , banana";
+      var upperText = text.toUpperCase();
+      console.log(upperText);
+      var text = "APPLE , BANANA";
+      var lowerText = text.toLowerCase();
+      console.log(lowerText);
+      //--- upperText = 'APPLE , BANANA' ---///
+      //--- lowerText = 'appel , banana' ---///
+
+      //8--- string concat() ---///
+      //---- string concat() joins two or more strings ---///
+      //--- متد کانکت دو یا چند رشته را به هم متصل میکند ---///
+      var text0 = "Hello";
+      var text1 = "everybody";
+      var newText = text0.concat(" ", text1);
+      console.log(newText);
+      //--- newText = 'Hello everybody' ---///
+
+      //9--- string trim() ---///
+      //---- string trim() removes white space from both sides of a string. ---///
+      //--- تریم فضاهای خالی را از دو طرف یک رشته پاک میکند ---///
+      var text = "    dear classmates    ";
+      var newText = text.trim();
+      console.log(newText);
+      //--- newText = 'dear classmates'
+
+      //10--- string padStart() ---///
+      //--- The padSTart() method pads a string from the start. ---///
+      //--- متد پد استارت یک را رشته را از ابتدا پر میکند با یک رشته تعیین شده ---///
+      //--- پد استارت دو مقدار میگیرد اولی تعداد کل کاراکتر های رشته میباشد و دومی کاراکتر تعیین شده است که در شروع رشته قرار میگیرد ---///
+      var text = "rge pizza";
+      var paddedText = "l" + text.padStart(17, "a");
+      console.log(paddedText);
+      //--- paddedText = 'laaaaaaaarge pizza' ---///
+    </script>
+  </body>
+</html>

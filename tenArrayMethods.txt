@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body style = 'background-color:#000;color:#fff;'>
+    <noscript>This website does not support js.</noscript>
+    <script>
+      //1------ method one : Array pop() ---------//
+      //--- Array pop removes the last element of an array ---//
+      provinces = ["tehran", "fars", "esfahan", "mashhad"];
+      provinces.pop();
+      console.log(provinces);
+      //---- provinces = ['tehran', 'fars', 'esfahan'] ----//
+
+      //2---- method two : Array shift() -----//
+      //-- Array shift() remove the first element from array and "shifts" all other elements to a lower index. ----//
+      //--- متد شیفت اولین المنت را از آرایه حذف کرده و اندیس المنت های دیگر را یک واحد کم میکند -----//
+      provinces = ["tehran", "fars", "esfahan", "mashhad"];
+      provinces.shift();
+      console.log(provinces);
+      //---  provinces=[index0:'fars' , index1:'esfahan' , index2:'mashhad'] ---//
+
+      //3------ method three : Array unshift() ---------//
+      //--- Array unshift() is a method that adds an element to an array at the beginnig
+      // and "unshift" older elements.//
+      //متد آنشیفت یک المنت دلخواه را به اول آرایه اضافه میکند و اندیس سایر المنت ها را یک واحد اضافه میکند//
+      provinces = ["tehran", "fars", "esfahan", "mashhad"];
+      provinces.unshift("zahedan");
+      console.log(provinces);
+      //--- provinces=[index0:'zahedan' , index1:'tehran' , 'esfahan' , 'mashhad'] ---//
+
+      //4--- method four : delete Array[index] ---//
+      //--- delete Array[index] deletes an element that you want to delete by inserting the index in [] after delete array.//
+      //--- using operator delete makes undefined delete holes in the array better to use shift or pop. ---//
+      // اوپراتور دیلیت قبل از آرایه استفاده میشود و المنت با اندیس دلخواه را حذف میکند//
+      //بهتر است از اوپراتور دیلیت برای حذف المنت استفاده نشود چراکه قسمت های تعریف نشده در آرایه باقی میگذارد//
+      var provinces = ["tehran", "fars", "esfahan", "mashhad"];
+      delete provinces[2];
+      console.log(provinces);
+      //--- provinces = ['tehran' , 'fars' , empty , 'mashhad']; ---//
+
+      //5--- method five : Merging (Concatenating) Arrays ---//
+      //--- The concat() makes a new array from concatenating existing arrays//
+      //--- concat() یک آرایه جدید از ترکیب کردن آرایه های موجود میسازد ---//
+      var capitalProvinces = ["tehran", "mashhad", "zahedan"],
+        smallProvinces = ["esfahan", "mazandaran"];
+      otherProvinces = ["khoozestan", "alborz", "semnan"];
+      provinces = capitalProvinces.concat(smallProvinces, otherProvinces);
+      console.log(provinces);
+      //--- provinces = ['tehran', 'mashhad', 'zahedan', 'esfahan', 'mazandaran', 'khoozestan', 'alborz', 'semnan'] ---//
+      //--- concat() method can take any number or arrays ---//
+
+      //6--- method six : Array.flat() , flatting an Array ---//
+      //--- flattering an array is the process of reducing dimensionality of an array ---//
+      //--- flat() method makes a new array with sub-array elements cocatenated to a specified depth ---//
+      //---متد فلت یک آرایه جدید میسازد که ابعاد آرایه اول را به مقدار عدد وارد شده در جلوی فلت کمتر میکند و در آرایه جدید قرار میدهد با تعداد زیر آرایه مشخص شده//
+      var provinces = [
+        ["tehran", "fars"],
+        [[["esfahan", "mashhad"]]],
+        ["khoozestan", "alborz", "semnan"],
+      ];
+      var cities = provinces.flat(3);
+      console.log(cities);
+      //--- cities = ['tehran' , 'fars' , 'esfahan' , 'mashhad' , 'khoozestan' , 'alborz' , 'semnan']---//
+
+      //7--- method seven :  Array.splice() to add items ---//
+      //--- Array.splice() can add new items to an array ---//
+      //--- array.splice(index, number of elements, element, element); ---//
+      //--- اسپلایس آیتم بااندیس مورد نظر از آرایه را حذف میکند و بجای آن آیتم های جدید را قرار میدهد---//
+
+      var fruits = ["mango", "kiwi", "orange", "apple"];
+      fruits.splice(1, 2, "grapes", "cucumber");
+      console.log(fruits);
+      //--- fruits = ['mango' , 'grapes' , 'cucumber' , 'orange' , 'apple']
+
+      //--- splice method to remove items ---//
+      //--- splice method can used to remove items from an array without leaving holes in array--//
+      //--- از اسپلایس برای حذف المنت ها نیز استفاده میشود اگر در جلوی متد اسپلایس دو عدد قرار گیرد
+      //---  مقدار اول برای شروع از اندیس مورد نظر و مقدار دوم تعداد حذف شدن بعد از آن را نشان میدهد
+      //---array.splice(index, number of elements);---//
+      var fruits = ["mango", "kiwi", "orange", "apple"];
+      fruits.splice(1, 2);
+      console.log(fruits);
+      //--- fruits=['mango' , 'apple'] ---//
+
+      //8--- method eight : Array.slice() ---//
+      //--- slice method slices out a piece or pieces of array into a new array
+      //--- from first index inputed to last index inputed (last index not include in new array)
+      //--- متد اسلایس آیتم با اندیس موردنظر را از آرایه برداشته و در آرایه جدید قرار میدهد
+      //--- میتوان چند آیتم را از آرایه مورد نظر برداشت و در آرایه جدید قرار داد
+      //--- Array.slice(firs index , last index(not including))
+      var capitals = ["tehran", "london", "madrid", "paris"];
+      var city = capitals.slice(0, 3);
+      console.log(city);
+      //--- city=['tehran' , 'london' , 'madrid'] ---//
+
+      //9--- method nine : Array.sort() ---//
+      //--- array.sort() method sorts an array alphabetically. ---//
+      //--- متد سورت آیتم های یک آرایه را به ترتیب الفبا مرتب میکند ---//
+      var capitals = ["tehran", "london", "madrid", "paris"];
+      capitals.sort();
+      console.log(capitals);
+      //--- capitals = ['london' , 'madrid' , 'paris' , 'tehran'] --//
+
+      //10--- method ten : Array.toString() ---//
+      //--- Array.toString() is a method that convert an array to a comma separated string ---//
+      //--- متد استرینگ آرایه را به یک رشته که با کاما از هم جدا شده اند تبدیل میکند ---//
+      var capitals = ["tehran", "london", "madrid", "paris"];
+      capitals_s = capitals.toString();
+      console.log(capitals_s);
+      //--- 'tehran','london','madrid','paris' ---//
+    </script>
+  </body>
+</html>
